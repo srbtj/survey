@@ -1,0 +1,108 @@
+@import "public";
+@rem : 50rem;
+
+#loading{
+  position: absolute;
+  left : 0;
+  right : 0;
+  top : 0;
+  bottom: 0;
+  background-color: #737373;
+  z-index:10;
+  img{
+    width: 800 / @rem;
+    height: 800 / @rem;
+    position: absolute;
+    left : 50%;
+    top : 50%;
+    margin-left:-400 / @rem;
+    margin-top:-400 / @rem;
+  }
+}
+
+#wrap{
+  display: none;
+  position: relative;
+  height: 100%;
+  width:100%;
+  > div {
+    position: absolute;
+    height: 100%;
+
+    .index{
+      position: relative;
+
+      height:100%;
+      background: url("../img/first-bg.png") no-repeat;
+      -webkit-background-size:contain;
+      background-size:contain;
+
+      .index-text{
+        position: absolute;
+        top: 464 / @rem;
+        left: 150 / @rem;
+        right: 150 / @rem;
+
+        .h3-title{
+          font-size:24 / @rem;
+          color: #333;
+          line-height:54 / @rem;
+          margin-left :50 / @rem;
+        }
+        .index-text-info{
+
+          position: absolute;
+          height: 400 / @rem;
+          overflow: hidden;
+          span{
+            font-size:20 / @rem;
+            color: #666;
+            line-height:40 / @rem;
+          }
+          .mask,.mask1{
+            position: absolute;
+            background-color: #fff;
+            width: 100%;
+            bottom:0;
+            height: 100 / @rem;
+          }
+          .mask{
+            opacity:.5;
+          }
+          .mask1{
+            height:60 / @rem;
+            opacity:.8;
+          }
+        }
+
+      }
+
+      .banner{
+        position: absolute;
+        right: 145 / @rem;
+        top: 525 / @rem;
+        background-color: #f92246;
+        height: 400 / @rem;
+        width : 3 / @rem;
+
+        .banner-btn{
+          height:70 / @rem;
+          width: 15 / @rem;
+          position: absolute;
+          right:-6 / @rem;
+          top:0;
+          background-color: #f92246;
+        }
+      }
+
+      .click-btn{
+        position: absolute;
+        top: 1015 / @rem;
+        img{
+          width:409 / @rem;
+          height: 98 / @rem;
+        }
+      }
+    }
+  }
+}
