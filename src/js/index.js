@@ -153,6 +153,7 @@ Index.prototype = {
         this.setHtmlSize();
         this.resizeHtmlSize();
         this.setAllWidth();
+        this.scrollText();
     },
     /**set font-size **/
     setHtmlSize : function(){
@@ -174,6 +175,30 @@ Index.prototype = {
         this.oMain.style.width = aSection.length + '00%';
         $('.pages').css('width',oneWidth);
     },
+    /** 滚动首屏文字 **/
+    scrollText : function(){
+        var oDiv = document.querySelector('.index-text-info');
+        var oSpan = oDiv.querySelector('span');
+        var height = oSpan.offsetHeight;
+        var pDiv = oDiv.querySelector('.pContainer');
+        var allHeight = parseInt(height) + 100;
+        pDiv.style.height = allHeight + 'px';
+
+        //oSpan.style.height = parseInt(oSpan.offsetHeight) + 200 + 'px';
+        var oBanner = document.querySelector('.banner').offsetHeight;
+        var oBannerBtn = document.querySelector('.banner-btn').offsetHeight;
+
+        var myScroll = new MScroll({
+            element : oDiv,
+            showBar : false
+        });
+
+        myScroll.onscrollend = function(target){
+
+        };
+        console.log(myScroll.iScroll)
+
+    }
 };
 
 
