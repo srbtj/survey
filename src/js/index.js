@@ -154,6 +154,7 @@ Index.prototype = {
         this.resizeHtmlSize();
         this.setAllWidth();
         this.scrollText();
+        this.scrollScreen();
     },
     /**set font-size **/
     setHtmlSize : function(){
@@ -184,9 +185,10 @@ Index.prototype = {
         var allHeight = parseInt(height) + 100;
         pDiv.style.height = allHeight + 'px';
 
-        //oSpan.style.height = parseInt(oSpan.offsetHeight) + 200 + 'px';
         var oBanner = document.querySelector('.banner').offsetHeight;
-        var oBannerBtn = document.querySelector('.banner-btn').offsetHeight;
+
+        var oBannerBtn = document.querySelector('.banner-btn');
+        var oBannerBtnHeight = oBannerBtn.offsetHeight;
 
         var myScroll = new MScroll({
             element : oDiv,
@@ -194,10 +196,22 @@ Index.prototype = {
         });
 
         myScroll.onscrollend = function(target){
-
+            //document.title = target;
+            var dis = Math.abs(target) == 0 ? 0 : Math.abs(target) + 100;
+            oBannerBtn.style.WebkitTransition = oBannerBtn.style.transition = '.2s';
+            oBannerBtn.style.top = dis / 50+ 'rem';
         };
-        console.log(myScroll.iScroll)
 
+    },
+    /** 切换屏幕 */
+    scrollScreen : function(){
+
+        var me = this;
+        var oImg = $('.click-btn img').get(0);
+        EventHandle.addEvent(oImg,'touchend',function(){
+            me.iNow++;
+            css(me.oMain,'translateX',-me.bodyWidth*me.iNow);
+        });
     }
 };
 
